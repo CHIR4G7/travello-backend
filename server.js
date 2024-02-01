@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 
 const app = express();
+const PORT = process.env.PORT
 dotenv.config();
 app.use(cors())
 app.use(express.json());
@@ -20,7 +21,7 @@ mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true}).then(()=>{
 app.use('/api/pin',require('./routes/pin'));
 app.use('/api/users',require('./routes/users'));
 
-app.listen(3245,()=>{
+app.listen(PORT,()=>{
     console.log("backend connected");
 })
 
