@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT
+const port = process.env.PORT || 3245;
 dotenv.config();
 app.use(cors())
 app.use(express.json());
@@ -21,12 +21,8 @@ mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true}).then(()=>{
 app.use('/api/pin',require('./routes/pin'));
 app.use('/api/users',require('./routes/users'));
 
-app.get("/", (req, res) => {
-    res.send("Express on Vercel");
-  });
-
-app.listen(PORT,()=>{
+app.listen(port,()=>{
     console.log("backend connected");
 })
 
-// module.exports = app;
+module.exports = app;
