@@ -29,4 +29,4 @@ app.listen(PORT,()=>{
     console.log("backend connected");
 })
 
-module.exports = app;
+// module.exports = app;
