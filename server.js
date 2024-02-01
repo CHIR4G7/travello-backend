@@ -21,6 +21,10 @@ mongoose.connect(process.env.MONGO_URL,{useNewUrlParser:true}).then(()=>{
 app.use('/api/pin',require('./routes/pin'));
 app.use('/api/users',require('./routes/users'));
 
+app.get("/", (req, res) => {
+    res.send("Express on Vercel");
+  });
+
 app.listen(PORT,()=>{
     console.log("backend connected");
 })
